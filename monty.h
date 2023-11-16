@@ -53,11 +53,13 @@ typedef struct glob_s
 	instruction_t **ops;
 } glob_t;
 
-extern glob_t;
 
 /* monty.c */
 void stack_init(stack_t **head);
 void free_all(void);
+stack_t create_node(int val);
+void insert(stack_t **head, unsigned int line_number);
+void free_nodes(void);
 
 /* helper1.c */
 int process_file(char *filename, stack_t **stack);
@@ -70,6 +72,9 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void function_swap(stack_t **stack, unsigned int line_number);
 void add_toptwo(stack_t **stack, unsigned int line_number);
+void push(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
+
 =======
 extern stack_t
 

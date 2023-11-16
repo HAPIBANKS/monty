@@ -26,17 +26,17 @@ stack_t create_node(int val)
 
 /**
  * insert - Adds a node to a queue
- * @head: Pointer to the head.
+ * @newNode: Pointer to the head.
  * @line_number: line number of the opcode.
  */
 
-void insert(stack_t **head, unsigned int line_number)
+void insert(stack_t **newNode, unsigned int line_number)
 {
 	stack_t *temp;
 
 	if (head == NULL)
 	{
-		head = *new_node;
+		head = *newNode;
 		return;
 	}
 	temp = head;
