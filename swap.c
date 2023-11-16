@@ -10,9 +10,8 @@ void function_swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	UNUSED(line_number);
 /*check if the stack is empty or has only one element*/
-	if (!(*stack) || ((*stack)->next))
+	if ((*stack) == NULL || ((*stack)->next == NULL))
 	{
 		printf("l%u: can't swap, stack too short\n", line_number)
 		exit(EXIT_FAILURE)
