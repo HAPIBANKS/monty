@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <limits.h>
+#include <ctype.h>
+#include <fcntl.h>
+#include <sys/types.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,5 +42,33 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+*struct glob_s - globally useful variables, all rolled into one
+*@top: double pointer to top of stack
+*@ops: double pointer to an instruction struct
+*/
+typedef struct glob_s
+{
+	stack_t **top;
+	instruction_t **ops;
+} glob_t;
+
+extern glob_t;
+
+/* monty.c */
+void stack_init(stack_t **head);
+void free_all(void);
+
+/* helper1.c */
+int process_file(char *filename, stack_t **stack);
+
+/* helper2.c */
+void delegate_op(stack_t **stack, char *op, unsigned int line_number);
+
+/* instruction.c */
+
+void nop(stack_t **stack, unsigned int line_number);
+void function_swap(stack_t **stack, unsigned int line_number);
+void add_toptwo(stack_t **stack, unsigned int line_number);
 
 #endif
