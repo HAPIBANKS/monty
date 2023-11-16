@@ -11,8 +11,6 @@ void push(stack_t **head, unsigned int line_number)
 	*data;
 	int val;
 
-	data = strtok(NULL, " \n\t\r");
-
 	if (!data)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -20,12 +18,6 @@ void push(stack_t **head, unsigned int line_number)
 	}
 	n = atoi(data);
 
-	stack_t *newNode = malloc(sizeof(stack_t));
-
-	if (!newNode)
-	{
-		perror(malloc failed);
-	}
 	newNode->n = val;
 	newNode->prev = NULL;
 	newNode->next = *head;
@@ -50,7 +42,7 @@ void pall(stack_t **head, unsigned int line_number)
 
 	if (nodes == NULL)
 		exit(EXIT_FAILURE);
-	whlie(nodes)
+	while(nodes)
 	{
 		printf("%d\n", nodes->n);
 		nodes = nodes->next;
