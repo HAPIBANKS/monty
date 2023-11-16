@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
 *function_swap - a function that swaps the top two element of a stack
