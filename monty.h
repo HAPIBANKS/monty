@@ -70,5 +70,7 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void function_swap(stack_t **stack, unsigned int line_number);
 void add_toptwo(stack_t **stack, unsigned int line_number);
+=======
+extern stack_t
 
 #endif
