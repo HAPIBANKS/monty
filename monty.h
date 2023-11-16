@@ -74,6 +74,8 @@ void function_swap(stack_t **stack, unsigned int line_number);
 void add_toptwo(stack_t **stack, unsigned int line_number);
 void push(stack_t **head, unsigned int line_number);
 void pall(stack_t **head, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 =======
 extern stack_t
