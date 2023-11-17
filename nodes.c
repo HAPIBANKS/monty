@@ -2,7 +2,8 @@
 
 /**
  * create_node - function that creates nodes
- * @val: value stored in the node
+ * @n: value stored in the node
+ * @stack: double pointer to the node
  * Return: node
  */
 void create_node(stack_t **stack, unsigned int n)

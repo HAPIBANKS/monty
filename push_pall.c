@@ -2,14 +2,14 @@
 
 /**
  * push - pushes an element onto the stack
- * @head: head's pointer
+ * @stack: double pointer to the stack
  * @line_number: value of the element to be pushed
  */
 
-void push(stack_t **head, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
-	*data;
-	int val;
+	char *data;
+	int n;
 
 	if (!data)
 	{
@@ -18,34 +18,34 @@ void push(stack_t **head, unsigned int line_number)
 	}
 	n = atoi(data);
 
-	newNode->n = val;
-	newNode->prev = NULL;
-	newNode->next = *head;
+	stack->n = n;
+	stack->prev = NULL;
+	stack->next = *head;
 
 	if (*head)
 	{
-		(*head)->prev = newNode;
-		*head = newNode;
+		(*head)->prev = stack;
+		*head = stack;
 	}
 }
 
 /**
  * pall -  prints all the values on the stack
- * @head: pointer to the head
+ * @stack: pointer to the head
  * @line_number: stack value
  */
 
 void pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
-	stack_t *nodes;
+	stack_t *temp = *stack;
 
-	if (nodes == NULL)
+	if (temp == NULL)
 		exit(EXIT_FAILURE);
-	while(nodes)
+	while(temp)
 	{
-		printf("%d\n", nodes->n);
-		nodes = nodes->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
 

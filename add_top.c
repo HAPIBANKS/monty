@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
-*add_toptwo - a function taht adds the top two elements of a stack
+*add_two - a function that adds the top two elements of a stack
 *@stack: the stack
 *@line_number: nodes number
 *Return: returns void
 */
-void add_toptwo(stack_t **stack, unsigned int line_number)
+void add_two(stack_t **stack, unsigned int line_number)
 {
 	int sum = 0;
 	stack_t *top = *stack, *second = NULL;
