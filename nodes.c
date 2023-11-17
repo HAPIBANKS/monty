@@ -5,7 +5,7 @@
  * @val: value stored in the node
  * Return: node
  */
-stack_t create_node(int val)
+void create_node(stack_t **stack, unsigned int n)
 {
 	stack_t *node;
 
@@ -18,7 +18,7 @@ stack_t create_node(int val)
 	else
 	{
 		node->prev = NULL;
-		node->val = val;
+		node->n = n;
 		node->next = NULL;
 	}
 	return (node);
@@ -46,23 +46,4 @@ void insert(stack_t **newNode, unsigned int line_number)
 	temp->next = *newNode;
 	(*newNode)->prev = temp;
 
-}
-
-/**
- * free_nodes - Frees nodes in the stack.
- */
-
-void free_nodes(void)
-{
-	stack_t *temp;
-
-	if (head == NULL)
-		return;
-
-	while (head != NULL)
-	{
-		temp = head;
-		head = head->next;
-		free(temp);
-	}
 }

@@ -77,7 +77,6 @@ void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 
-=======
 extern stack_t
 
 #endif
