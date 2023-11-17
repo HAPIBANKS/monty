@@ -58,7 +58,7 @@ typedef struct glob_s
 void stack_init(stack_t **head);
 void free_all(void);
 void create_node(stack_t **stack, unsigned int n);
-void insert(stack_t **head, unsigned int line_number);
+void insert(stack_t **newNode, unsigned int line_number);
 
 /* helper1.c */
 int process_file(char *filename, stack_t **stack);
@@ -71,8 +71,8 @@ void delegate_op(stack_t **stack, char *op, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add_two(stack_t **stack, unsigned int line_number);
-void push(stack_t **head, unsigned int line_number);
-void pall(stack_t **head, unsigned int line_number);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 

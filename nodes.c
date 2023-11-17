@@ -3,26 +3,23 @@
 /**
  * create_node - function that creates nodes
  * @n: value stored in the node
- * @stack: double pointer to the node
  * Return: node
  */
-void create_node(stack_t **stack, unsigned int n)
+stack_t *create_node(unsigned int n)
 {
-	stack_t *node;
+    stack_t *node = malloc(sizeof(stack_t));
 
-	stack_t *node = (stack_t *)malloc(sizeof(stack_t));
+    if (!node)
+    {
+        perror("Error: malloc failed");
+        exit(EXIT_FAILURE);
+    }
 
-	if (!node)
-	{
-		perror("Error: malloc failed");
-	}
-	else
-	{
-		node->prev = NULL;
-		node->n = n;
-		node->next = NULL;
-	}
-	return (node);
+    node->prev = NULL;
+    node->n = n;
+    node->next = NULL;
+
+    return node;
 }
 
 /**
@@ -30,21 +27,26 @@ void create_node(stack_t **stack, unsigned int n)
  * @newNode: Pointer to the head.
  * @line_number: line number of the opcode.
  */
-
 void insert(stack_t **newNode, unsigned int line_number)
 {
-	stack_t *temp;
+    stack_t *temp;
 
-	if (head == NULL)
-	{
-		head = *newNode;
-		return;
-	}
-	temp = head;
-	while (temp->next != NULL)
-		temp = temp->next;
+    if (!newNode || *newNode == NULL)
+    {
+        fprintf(stderr, "L%d: Unable to insert a NULL node\n", line_number);
+        exit(EXIT_FAILURE);
+    }
 
-	temp->next = *newNode;
-	(*newNode)->prev = temp;
+    if (head == NULL)
+    {
+        head = *newNode;
+        return;
+    }
 
+    temp = head;
+    while (temp->next != NULL)
+        temp = temp->next;
+
+    temp->next = *newNode;
+    (*newNode)->prev = temp;
 }

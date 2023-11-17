@@ -13,14 +13,15 @@ int main(argc, argv[])
 		fprintf(stderr, "Usage: %s monty file\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
+	instruction_t func[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap",swap},
+		{"nop", nop},
+		{"add_two", add_two},
+		{NULL, NULL}
+	}
+	return (0);
 }
-instruction_t func[] = {
-    {"push", push},
-    {"pall", pall},
-    {"pint", pint},
-    {"pop", pop},
-    {"swap",swap},
-    {"nop", nop},
-    {"add_toptwo", add_toptwo},
-    {NULL, NULL}
-};
