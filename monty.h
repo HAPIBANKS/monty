@@ -57,7 +57,7 @@ typedef struct glob_s
 /* monty.c */
 void stack_init(stack_t **head);
 void free_all(void);
-void create_node(stack_t **stack, unsigned int n);
+stack_t *create_node(unsigned int n);
 void insert(stack_t **newNode, unsigned int line_number);
 
 /* helper1.c */
