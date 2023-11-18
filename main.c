@@ -6,7 +6,7 @@
  * @argv: argument vector
  * Return: 0(success) otherwise EXIT_FAILURE
  */
-int main(argc, argv[])
+int main(argc, *argv[])
 {
 	if (argc != 2)
 	{

@@ -1,4 +1,6 @@
 #include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
 *process - processes the monty files
@@ -14,6 +16,7 @@ int process(char *filename, stack_t **stack)
 	FILE *fp;
 	unsigned int line_number = 0;
 	char *line = NULL;
+	const char *DELIMS = "\n ";
 
 	if (!filename)
 	{
@@ -48,9 +51,11 @@ int process(char *filename, stack_t **stack)
  * @line: characters from the file
  * Return: 0(stack) or 1(queues)
  */
-int parse_line(char *line, unsigned int line_number, info)
+int parse_line(char *line, unsigned int line_number, int info)
 {
-	char *op, *data;
+	char *op, *value;
+	const char *DELIMS = "\n ";
+	(void)line_number;
 	
 	if (line == NULL)
 		printf("Error\n");
@@ -58,7 +63,7 @@ int parse_line(char *line, unsigned int line_number, info)
 
 	if (op == NULL)
 		return (info);
-	data = strtok(NULL, DELIMS);
+	value = strtok(NULL, DELIMS);
 
 	if (strcmp(op, stack) == 0)
 		return (0);

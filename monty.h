@@ -53,12 +53,15 @@ typedef struct glob_s
 	instruction_t **ops;
 } glob_t;
 
+extern stack_t *head;
+typedef void (*op_func)(stack_t **, unsigned int);
 
 /* monty.c */
 void stack_init(stack_t **head);
 void free_all(void);
 stack_t *create_node(unsigned int n);
 void insert(stack_t **newNode, unsigned int line_number);
+int parse_line(char *line, unsigned int line_number, int info);
 
 /* helper1.c */
 int process_file(char *filename, stack_t **stack);
@@ -75,7 +78,5 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
-
-extern stack_t
 
 #endif
