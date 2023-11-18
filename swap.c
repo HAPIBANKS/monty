@@ -1,32 +1,34 @@
 #include "monty.h"
 
 /**
-*swap - a function that swaps the top two element of a stack
-*@stack: a stack node
-*@line_number: value of node
-*Return: it returns void
-*/
+ * swap - swap top two elements of a stack
+ * @stack: the stack
+ * @line_number: line number of the stack
+ * Return: always void
+ */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *next;
 
-/*check if the stack is empty or has only one element*/
-	if ((*stack) == NULL || ((*stack)->next == NULL))
+	if (var.stack_len < 2)
 	{
-		printf("l%u: can't swap, stack too short\n", line_number);
+		dprintf(STDOUT_FILENO,
+			"L%u: can't swap, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
-/*if the stack contains tow or more elements*/
-	tmp = (*stack)->next;
-	(*stack)->prev = (*stack)->next;
-	(*stack)->next = tmp->next;
-	tmp->prev = NULL;
-	(*stack)->prev = tmp;
-/*if there is a next element after tmp, update its pointer*/
-	if (tmp->next)
-	tmp->next->prev = *stack;
-/*update the next pointe rof the tmp*/
-	tmp->next = *stack;
-/*update the stack pointer to point to the new top ofthe stack*/
-	(*stack) = (*stack)->prev;
+
+	if (var.stack_len == 2)
+	{
+		*stack = (*stack)->next;
+		return;
+	}
+	next = (*stack)->next;
+	next->prev = (*stack)->prev;
+	(*stack)->prev->next = next;
+	(*stack)->prev = next;
+	(*stack)->next = next->next;
+	next->next->prev = *stack;
+	next->next = *stack;
+	*stack = next;
 }
